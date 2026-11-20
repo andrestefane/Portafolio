@@ -161,6 +161,12 @@
     position: relative;
   }
 
+  .project-desc code {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--ink);
+  }
+
   .project-card:hover {
     background: var(--bg2);
   }
@@ -223,7 +229,7 @@
 
   .skill-row {
     display: grid;
-    grid-template-columns: 120px 1fr;
+    grid-template-columns: 140px 1fr;
     gap: 16px;
     align-items: baseline;
   }
@@ -382,9 +388,9 @@
           <span class="project-name">webserv</span>
           <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13L13 3M13 3H6M13 3v7"/></svg>
         </div>
-        <p class="project-desc">Servidor HTTP/1.1 implementado desde cero en C++. Sockets no bloqueantes, multiplexación con select/poll, métodos GET/POST/DELETE, soporte CGI y configuración tipo nginx.</p>
+        <p class="project-desc">Servidor web HTTP/1.1 concurrente desarrollado desde cero en C++. Arquitectura de sockets POSIX no bloqueantes con multiplexación de E/S mediante poll(), parser de métodos (GET/POST/DELETE), ejecución CGI y motor de configuración estilo NGINX.</p>
         <div class="tags">
-          <span class="tag">C++</span><span class="tag">HTTP/1.1</span><span class="tag">Sockets</span><span class="tag">CGI</span><span class="tag">Linux</span>
+          <span class="tag">C++</span><span class="tag">HTTP/1.1</span><span class="tag">Sockets POSIX</span><span class="tag">poll()</span><span class="tag">CGI</span><span class="tag">Linux</span>
         </div>
       </a>
 
@@ -393,14 +399,21 @@
           <span class="project-name">Inception</span>
           <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13L13 3M13 3H6M13 3v7"/></svg>
         </div>
-        <p class="project-desc">Infraestructura multi-contenedor dockerizada con NGINX, WordPress, MariaDB, Redis, FTP y Uptime Kuma sobre red aislada.</p>
+        <p class="project-desc">Despliegue de infraestructura multi-contenedor modular y aislada. NGINX como proxy inverso HTTPS (TLSv1.2/v1.3), WordPress con procesamiento PHP-FPM, caché Redis en memoria, MariaDB, FTP y monitorización con Uptime Kuma.</p>
         <div class="tags">
-          <span class="tag">Docker</span>
-          <span class="tag">Docker Compose</span>
-          <span class="tag">DevOps</span>
-          <span class="tag">Redes</span>
+          <span class="tag">Docker</span><span class="tag">Docker Compose</span><span class="tag">NGINX</span><span class="tag">TLS</span><span class="tag">MariaDB</span><span class="tag">Redis</span><span class="tag">PHP-FPM</span><span class="tag">Linux</span>
         </div>
       </a>
+
+      <div class="project-card">
+        <div class="project-header">
+          <span class="project-name">Trascende — Honeypot Security Dashboard</span>
+        </div>
+        <p class="project-desc">Dashboard de ciberseguridad que muestra ataques SSH/Telnet en tiempo real. Infraestructura de 9 servicios con Docker Compose y redes aisladas, honeypots Cowrie contenidos (<code>cap_drop: ALL</code>, logs en solo lectura), gateway Elasticsearch → Socket.IO, módulos <code>attacks/</code> y <code>alerts/</code>, simulador de ataques y tests E2E con Playwright.</p>
+        <div class="tags">
+          <span class="tag">Docker Compose</span><span class="tag">Cowrie</span><span class="tag">NestJS</span><span class="tag">Socket.IO</span><span class="tag">PostgreSQL</span><span class="tag">Elasticsearch</span><span class="tag">Playwright</span>
+        </div>
+      </div>
 
       <a class="project-card" href="https://github.com/andrestefane/CPPS" target="_blank">
         <div class="project-header">
@@ -418,9 +431,9 @@
           <span class="project-name">minishell</span>
           <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13L13 3M13 3H6M13 3v7"/></svg>
         </div>
-        <p class="project-desc">Shell funcional en C con pipes, redirecciones y variables de entorno. Gestión de procesos hijo, descriptores de archivo y manejo de señales.</p>
+        <p class="project-desc">Intérprete de comandos funcional en C equivalente a Bash. Control de procesos (fork/execve), tuberías en paralelo (pipes), redirecciones de E/S (&lt;, &gt;), gestión de señales POSIX y variables de entorno, sin fugas de memoria.</p>
         <div class="tags">
-          <span class="tag">C</span><span class="tag">Linux</span><span class="tag">Procesos</span><span class="tag">fork/exec</span>
+          <span class="tag">C</span><span class="tag">POSIX</span><span class="tag">Linux</span><span class="tag">Procesos</span><span class="tag">fork/execve</span><span class="tag">Pipes</span><span class="tag">Señales</span>
         </div>
       </a>
 
@@ -510,31 +523,67 @@
         <span class="skill-cat">Lenguajes</span>
         <div class="skill-items">
           <span class="skill-chip">C</span>
-          <span class="skill-chip">C++ (00–09)</span>
-          <span class="skill-chip">JavaScript</span>
+          <span class="skill-chip">C++ (POO, STL, plantillas)</span>
           <span class="skill-chip">TypeScript</span>
-          <span class="skill-chip">HTML / CSS</span>
+          <span class="skill-chip">JavaScript</span>
           <span class="skill-chip">SQL</span>
+          <span class="skill-chip">XML</span>
+          <span class="skill-chip">HTML / CSS</span>
         </div>
       </div>
       <div class="skill-row">
-        <span class="skill-cat">Tecnologías</span>
+        <span class="skill-cat">Sistemas y redes</span>
         <div class="skill-items">
-          <span class="skill-chip">Git</span>
-          <span class="skill-chip">Linux</span>
+          <span class="skill-chip">Linux / POSIX</span>
+          <span class="skill-chip">Sockets TCP/IP</span>
+          <span class="skill-chip">HTTP/1.1</span>
+          <span class="skill-chip">WebSockets</span>
+          <span class="skill-chip">Procesos e hilos (mutex)</span>
+          <span class="skill-chip">Gestión de memoria</span>
+          <span class="skill-chip">Depuración</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-cat">Bases de datos</span>
+        <div class="skill-items">
+          <span class="skill-chip">Modelado relacional</span>
+          <span class="skill-chip">MariaDB</span>
+          <span class="skill-chip">PostgreSQL (TypeORM, migraciones)</span>
+          <span class="skill-chip">Elasticsearch (Query DSL, ILM)</span>
+          <span class="skill-chip">Redis</span>
+          <span class="skill-chip">phpMyAdmin</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-cat">DevOps y seguridad</span>
+        <div class="skill-items">
+          <span class="skill-chip">Docker</span>
+          <span class="skill-chip">Docker Compose (multi-entorno, healthchecks)</span>
+          <span class="skill-chip">Nginx (TLS/HTTPS)</span>
+          <span class="skill-chip">ELK</span>
+          <span class="skill-chip">Contención de honeypots</span>
+          <span class="skill-chip">Gestión de secretos</span>
+          <span class="skill-chip">Git (Conventional Commits, PRs)</span>
+          <span class="skill-chip">Makefiles</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-cat">Backend y QA</span>
+        <div class="skill-items">
+          <span class="skill-chip">NestJS</span>
+          <span class="skill-chip">Socket.IO</span>
+          <span class="skill-chip">Jest + Supertest</span>
+          <span class="skill-chip">Playwright</span>
+          <span class="skill-chip">Swagger</span>
           <span class="skill-chip">React</span>
-          <span class="skill-chip">HTTP / Sockets</span>
-          <span class="skill-chip">CGI</span>
-          <span class="skill-chip">STL</span>
         </div>
       </div>
       <div class="skill-row">
-        <span class="skill-cat">Sistemas</span>
+        <span class="skill-cat">Idiomas</span>
         <div class="skill-items">
-          <span class="skill-chip">Administración Linux</span>
-          <span class="skill-chip">TCP/IP</span>
-          <span class="skill-chip">Redes</span>
-          <span class="skill-chip">Procesos / Hilos</span>
+          <span class="skill-chip">Español (nativo)</span>
+          <span class="skill-chip">Rumano (nativo)</span>
+          <span class="skill-chip">Inglés (B2)</span>
         </div>
       </div>
     </div>
@@ -542,14 +591,21 @@
 
   <!-- EDUCACIÓN -->
   <section>
-    <div class="section-label">Educación</div>
+    <div class="section-label">Educación y certificados</div>
     <div>
       <div class="edu-item">
         <div class="edu-header">
-          <span class="edu-name">42 Madrid — Escuela de Programación</span>
+          <span class="edu-name">42 Madrid Fundación Telefónica — Escuela de Programación</span>
           <span class="edu-date">2024 – en curso</span>
         </div>
-        <p class="edu-sub">Formación práctica peer-to-peer en desarrollo de software: C, C++, Shell, Git, Linux y resolución de problemas.</p>
+        <p class="edu-sub">Formación práctica intensiva peer-to-peer en arquitectura de software y desarrollo de sistemas: C, C++ (POO/STL), Linux, Docker, redes HTTP/1.1 y DevOps. Gestión de memoria, concurrencia y trabajo en equipo.</p>
+      </div>
+      <div class="edu-item">
+        <div class="edu-header">
+          <span class="edu-name">Certificado de profesionalidad en Sistemas de Gestión de Información (IFCD0211, nivel 3)</span>
+          <span class="edu-date">590 h · finalizado</span>
+        </div>
+        <p class="edu-sub">Consulta y manipulación de información en gestores de datos: modelado de datos y SQL, creación y gestión de repositorios de contenidos, XML y desarrollo de gestores de contenidos.</p>
       </div>
       <div class="edu-item">
         <div class="edu-header">
